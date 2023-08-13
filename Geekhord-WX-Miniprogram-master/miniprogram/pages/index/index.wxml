@@ -1,0 +1,43 @@
+<!--miniprogram/pages/index/index.wxml-->
+<view class="container">
+  <view class="start-container">
+    <button class="btnstart" bindtap="toExam">答题模式</button>
+  </view>
+
+  <view class="catagory-container">
+    <view class="catagory-item cat-C">
+      <button bindtap="detail_click" class="cat-button" data-curstatus="close" data-id="0">C</button>
+    </view>
+    <view class="catagory-item cat-D">
+      <button bindtap="detail_click" class="cat-button" data-curstatus="close" data-id="1">D</button>
+    </view>
+    <view class="catagory-item cat-E">
+      <button bindtap="detail_click" class="cat-button" data-curstatus="close" data-id="2">E</button>
+    </view>
+    <view class="catagory-item cat-F">
+      <button bindtap="detail_click" class="cat-button" data-curstatus="close" data-id="3">F</button>
+    </view>
+    <view class="catagory-item cat-G">
+      <button bindtap="detail_click" class="cat-button" data-curstatus="close" data-id="4">G</button>
+    </view>
+    <view class="catagory-item cat-A">
+      <button bindtap="detail_click" class="cat-button" data-curstatus="close" data-id="5">A</button>
+    </view>
+    <view class="catagory-item cat-B">
+      <button bindtap="detail_click" class="cat-button" data-curstatus="close" data-id="6">B</button>
+    </view>
+  </view>
+  <block wx:if='{{showDetails}}'>
+    <view class="detail-container">
+      <view class="detail-title">{{title}}</view>
+      <view class="detail-content">
+        <view wx:for-items="{{content}}" wx:key="index">
+          <view class="detail-subtitle">{{item.subcat_name}}</view>
+          <view wx:for="{{item.detail_items}}" wx:key="index" class="detail-item">{{item}}</view>
+        </view>
+      </view>
+      <view class="btn-ok" bindtap="detail_click" data-curstatus="open">确定</view>
+     </view>
+  </block>
+  <view class='detail-mask' wx:if='{{showDetails}}'></view>
+</view>
