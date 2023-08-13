@@ -1,0 +1,33 @@
+<!--pages/exam/exam.wxml-->
+<view class="body">
+  <view class="top">
+    <button class='countView'>{{count}}</button>
+    <button class="chord">{{randomQuestion}}</button>
+    <button class="next" bindtap="getRandomQuestions">></button>
+  </view>
+  <view class="result-c" style="height: {{height}}rpx;">
+      <view class="res" id="{{index}}" wx:for="{{results}}" style="background: {{itemColor[index]}}; line-height: 100rpx;">{{item}}</view>
+  </view>    
+  <view class='typer'>
+    <view class="f-container">
+      <button class="fbtn {{selectedA=='A1' ? 'selected' : ''}}" data-value="A1" bindtap="onSelectA">#</button>
+      <button class="fbtn {{selectedA=='A2' ? 'selected' : ''}}" data-value="A2" bindtap="onSelectA">b</button>
+      <button class="fbtn {{selectedA=='A3' ? 'selected' : ''}}" data-value="A3" bindtap="onSelectA">x</button>
+      <button class="fbtn {{selectedA=='A4' ? 'selected' : ''}}" data-value="A4" bindtap="onSelectA">bb</button>
+    </view>
+    <view class="notebtn-container">
+      <button class="notebtn {{selectedB=='B1' ? 'selected' : ''}}" data-value="B1" bindtap="onSelectB">C</button>
+      <button class="notebtn {{selectedB=='B2' ? 'selected' : ''}}" data-value="B2" bindtap="onSelectB">D</button>
+      <button class="notebtn {{selectedB=='B3' ? 'selected' : ''}}" data-value="B3" bindtap="onSelectB">E</button>
+      <button class="notebtn {{selectedB=='B4' ? 'selected' : ''}}" data-value="B4" bindtap="onSelectB">F</button>
+      <button class="notebtn {{selectedB=='B5' ? 'selected' : ''}}" data-value="B5" bindtap="onSelectB">G</button>
+      <button class="notebtn {{selectedB=='B6' ? 'selected' : ''}}" data-value="B6" bindtap="onSelectB">A</button>
+      <button class="notebtn {{selectedB=='B7' ? 'selected' : ''}}" data-value="B7" bindtap="onSelectB">B</button>
+      <button class="confirm-c"  bindtap="onConfirm" style="background: {{(typed < 8 && !isCorrect ? '#4A74FA' : 'lightgray')}}">好</button>
+    </view>
+    <view class="foot">
+      <button class="delete" bindtap="onDeleteResult" style="background: {{isCorrect ? 'lightgray' : '#FB4C46'}};">X</button>
+      <button class="submit" bindtap="onSubmit" style="background: {{results == 0 || randomQuestion == '点击右侧开始' || isCorrect ? 'lightgray' : '#1ab37f'}}">提交</button>
+    </view>
+  </view>
+</view>
